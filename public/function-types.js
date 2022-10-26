@@ -20,7 +20,7 @@ let result = minus(9, 7);
 const myTypes = {
     name: 'string',
     age: 99,
-    muFunc: (a, b, c = 21) => void ,
+    // muFunc: (a:number, b: number, c: number = 21) => void,
     minus: (a, b) => {
         return a + b;
     }
