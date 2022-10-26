@@ -41,13 +41,17 @@ const list = new ListTemplate(ul)
 
 form.addEventListener('submit', (e: Event) => {
     e.preventDefault()
+    let values: [string, string, number]
+    values = [toFrom.value, details.value, amount.valueAsNumber]
 
     let doc: HasFormater;
 
     if(type.value === 'invoice'){
-        doc = new Invoice(toFrom.value, details.value, amount.valueAsNumber)
+        doc = new Invoice(...values)
+        // doc = new Invoice(toFrom.value, details.value, amount.valueAsNumber)
     }else {
-        doc = new Payment(toFrom.value, details.value, amount.valueAsNumber)
+        doc = new Payment(...values)
+        // doc = new Payment(toFrom.value, details.value, amount.valueAsNumber)
     }
     // console.log(type.value, details.value, amount.valueAsNumber)
     console.log(doc)
@@ -178,4 +182,15 @@ console.log('docFive', docFive);
 
 //tuples
 
+let arr = ['ryu', 25, true]
+arr[0] = false
+arr[1] = 'yishi'
+arr = [3, true, 'false']
 
+let tup: [string, number, boolean] = ['dean', 55, false]
+tup[0] = '99'
+tup[1] = 1998
+
+
+let student: [string, number];
+student = ['taofik', 29]

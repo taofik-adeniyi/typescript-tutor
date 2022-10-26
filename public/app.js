@@ -27,12 +27,16 @@ const ul = document.querySelector('ul');
 const list = new ListTemplate(ul);
 form.addEventListener('submit', (e) => {
     e.preventDefault();
+    let values;
+    values = [toFrom.value, details.value, amount.valueAsNumber];
     let doc;
     if (type.value === 'invoice') {
-        doc = new Invoice(toFrom.value, details.value, amount.valueAsNumber);
+        doc = new Invoice(...values);
+        // doc = new Invoice(toFrom.value, details.value, amount.valueAsNumber)
     }
     else {
-        doc = new Payment(toFrom.value, details.value, amount.valueAsNumber);
+        doc = new Payment(...values);
+        // doc = new Payment(toFrom.value, details.value, amount.valueAsNumber)
     }
     // console.log(type.value, details.value, amount.valueAsNumber)
     console.log(doc);
@@ -101,3 +105,12 @@ const docFive = {
 };
 console.log('docFive', docFive);
 //tuples
+let arr = ['ryu', 25, true];
+arr[0] = false;
+arr[1] = 'yishi';
+arr = [3, true, 'false'];
+let tup = ['dean', 55, false];
+tup[0] = '99';
+tup[1] = 1998;
+let student;
+student = ['taofik', 29];
